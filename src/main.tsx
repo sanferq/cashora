@@ -7,7 +7,11 @@ import { Layout } from "./pages/layout"
 import { Expenses } from "./pages/expenses"
 import { Income } from "./pages/income"
 import { Transactions } from "./pages/transactions"
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
+import { 
+  createHashRouter,
+  Navigate, 
+  RouterProvider 
+} from "react-router-dom"
 import { FinanceProvider } from "./context/finance-context"
 
 const container = document.getElementById("root")
@@ -15,7 +19,7 @@ const container = document.getElementById("root")
 if (container) {
   const root = createRoot(container)
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <Layout />,
@@ -25,15 +29,15 @@ if (container) {
           element: <Navigate to="/expenses" replace />,
         },
         {
-          path: "/expenses",
+          path: "expenses",
           element: <Expenses />,
         },
         {
-          path: "/income",
+          path: "income",
           element: <Income />,
         },
         {
-          path: "/transactions",
+          path: "transactions",
           element: <Transactions />,
         },
       ],
