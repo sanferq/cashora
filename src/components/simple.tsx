@@ -86,13 +86,13 @@ const BarChartWithFilter: React.FC = () => {
         <p className="font-medium mb-2">{label}</p>
         <div className="space-y-1">
           {filteredPayload.map(entry => (
-            <div key={entry.name} className="flex items-center">
+            <div key={entry.dataKey} className="flex items-center">
               <div
                 className="w-2 h-2 rounded-full mr-2"
                 style={{ background: entry.color }}
               />
               <span className="text-sm">
-                {entry.name === "income" ? "Доход" : "Расход"}:{" "}
+                {entry.dataKey === "income" ? "Доход" : "Расход"}:{" "}
                 <strong>{entry.value?.toLocaleString("ru-RU")} ₽</strong>
               </span>
             </div>
